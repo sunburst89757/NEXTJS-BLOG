@@ -1,9 +1,15 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import useSWR from "swr";
 import Layout from "../../components/layout";
-
+import { fetchRequest } from "../../lib/request";
 export default function FirstPage() {
+  const { data, error } = useSWR(
+    "https://api.github.com/users/ruanyf",
+    fetchRequest
+  );
+  if (!data) return <div>Loading...</div>;
   return (
     <Layout>
       <Head>
@@ -17,6 +23,7 @@ export default function FirstPage() {
           console.log("加载成功");
         }}
       ></Script> */}
+      <section>{data.login}</section>
 
       <h1>First post</h1>
       <h2>

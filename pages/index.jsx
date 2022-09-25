@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import Layout, { siteTitle } from "../components/layout";
 import { getSortedPostsData } from "../lib/post";
 import utilStyles from "../styles/utils.module.css";
@@ -9,6 +10,7 @@ export default function Home({ allPostsData }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
+      <Link href="/posts/first-post">first blog</Link>
       <section className={utilStyles.headingMd}>
         <p>[Your Self Introduction]</p>
         <p>
