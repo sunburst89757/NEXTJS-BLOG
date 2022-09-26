@@ -1,16 +1,23 @@
 import Head from "next/head";
 import Link from "next/link";
+import { testApi } from "../api/testApi";
 import Date from "../components/date";
 import Layout, { siteTitle } from "../components/layout";
 import { getSortedPostsData } from "../lib/post";
 import utilStyles from "../styles/utils.module.css";
 
 export default function Home({ allPostsData }) {
+  const handleClick = () => {
+    testApi().then((res) => {
+      console.log("res:", res);
+    });
+  };
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
+      <button onClick={handleClick}>点击请求</button>
       <Link href="/posts/first-post">first blog</Link>
       <section className={utilStyles.headingMd}>
         <p>[Your Self Introduction]</p>
