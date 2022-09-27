@@ -18,7 +18,6 @@ export default function Home({ allPostsData }) {
         <title>{siteTitle}</title>
       </Head>
       <button onClick={handleClick}>点击请求</button>
-      <Link href="/posts/first-post">first blog</Link>
       <section className={utilStyles.headingMd}>
         <p>[Your Self Introduction]</p>
         <p>
